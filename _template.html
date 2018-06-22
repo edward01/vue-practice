@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Invoice</title>
+  <title>Sample</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
 
@@ -23,25 +23,25 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script>
     var app = new Vue({
-        el: '#app',
-        data: {
-            name: 'Edward Jose',
-        },
-        methods: {
-            addToCart() {
-                this.cart += 1
-            },
-        },
-        computed: {
-            title() {
-                return this.brand + ' ' + this.product
-            },
-        },
-        filters: {
-            currency(value) {
-                return value.toFixed(2);
-            }
-        }
+      el: '#app',
+      data: {
+          name: 'Edward Jose',
+      },
+      methods: {
+          addToCart() {
+              this.cart += 1
+          },
+      },
+      computed: {
+          title() {
+              return this.brand + ' ' + this.product
+          },
+      },
+      filters: {
+          currency(value) {
+              return value.toFixed(2);
+          }
+      }
     })
   </script>
 </body>

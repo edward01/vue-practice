@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sample</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #bag {
+      height: 500px;
+      width: 500px;
+      background: url('https://images-na.ssl-images-amazon.com/images/I/51u84weGbML._SL1000_.jpg') center no-repeat;
+      background-size: 100%;
+      margin: 20px auto;
+    }
+    #bag.burst {
+      background: url('https://d1yn1kh78jj1rr.cloudfront.net/image/preview/rDtN98Qoishumwih/comic-burst-vector_71d7TW_SB_PM.jpg') center no-repeat;
+      background-size: 100%;
+    }
+    #bag-health {
+      width: 200px;
+      border: 2px solid #000;
+      margin: 0 auto 20px auto;
+    }
+    #bag-health div {
+      height: 20px;
+      background: crimson;
+    }
+    #controls {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <div id="bag" @click="punch" :class="{burst: ended}"></div>
+
+    <div id="bag-health" v-show="!ended">
+      <div :style="{width: health+'%'}"></div>
+    </div>
+
+    <div id="controls">
+      <button @click="punch" v-show="!ended">Punch</button>
+      <button @click="restart">Restart</button>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        health: 100
+      },
+      methods: {
+        punch() {
+          this.health -= 10;
+        },
+        restart() {
+          this.health = 100;
+        }
+      },
+      computed: {
+        ended() {
+          return this.health <= 0;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
