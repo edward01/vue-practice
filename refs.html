@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Refs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <input type="text" ref="myInput">
+    <button @click="getInput">Get Input</button>
+    <button @click="overrideInput">Override Input to 'edward'</button>
+    <div>Output: {{ output }}</div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        output: ''
+      },
+      methods: {
+        getInput() {
+          this.output = this.$refs.myInput.value;
+        },
+        overrideInput() {
+          this.$refs.myInput.value = 'edward'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
