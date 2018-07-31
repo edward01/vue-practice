@@ -120,13 +120,14 @@
           this.percentValue = 0
         },
         backspace() {
-          if (this.input == '0') {
+          if (this.input == '0' && this.result != '') {
             this.input = this.result.substring(0, this.result.length-2)
             this.result = ''
           }
           else {
             this.input = this.input.slice(0, -1)
           }
+          if (this.input == '') this.input = '0'
         },
         percentButton() {
           this.percentValue = eval(this.input/100)
@@ -151,7 +152,7 @@
           }
 
           // move 'input-field value' into 'result-field'
-          if (this.result.indexOf('=') > 0)
+          if (this.result.indexOf('=') > 0 || this.result == '')
             this.result = this.input
           else
             this.result += ' ' + this.input
@@ -184,4 +185,5 @@ TODO
 - 'auto comma' on thousands value
 / on equal click, when inputting new number, should override the existng value
 - auto decrease of font size when number reached the border
+- if used percent, should not allow input of numberic and decimal point
  -->
